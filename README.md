@@ -9,7 +9,7 @@ Este proyecto está basado en una **base de datos de ventas** y tiene como objet
 A continuación, se presenta la ruta del proyecto para un mejor contexto:  
 
 📷 _Imagen de la estructura del proyecto_  
-`![Estructura del Proyecto](ruta_a_tu_imagen/estructura_proyecto.png)`
+`![Guía del Proyecto](https://raw.githubusercontent.com/JoanBEnd/sql-proyectos/main/proyecto-SSIS-retail/imagen/guia-proyecto.png)`
 
 ---
 
