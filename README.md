@@ -9,7 +9,8 @@ Este proyecto está basado en una **base de datos de ventas** y tiene como objet
 A continuación, se presenta la ruta del proyecto para un mejor contexto:  
 
 📷 _Imagen de la estructura del proyecto_  
-`![Guía del Proyecto](https://raw.githubusercontent.com/JoanBEnd/sql-proyectos/main/proyecto-SSIS-retail/imagen/guia-proyecto.png)`
+
+![Guía del Proyecto](https://raw.githubusercontent.com/JoanBEnd/sql-proyectos/main/proyecto-SSIS-retail/imagen/guia-proyecto.png)
 
 ---
 
@@ -27,7 +28,7 @@ A continuación, se presenta la ruta del proyecto para un mejor contexto:
 📌 Contiene el **proyecto de Integration Services (SSIS)**, desarrollado en **Visual Studio 2022**.  
 
 📷 _Imagen de la configuración de conexiones en SSIS_  
-`![Configuración de Conexiones](ruta_a_tu_imagen/conexion_ssis.png)`
+![Cambiar Conexion](https://raw.githubusercontent.com/JoanBEnd/sql-proyectos/refs/heads/main/proyecto-SSIS-retail/imagen/conexion.png)
 
 🔹 **Importante**: En la sección de **Administración de Conexiones**, deberás cambiar la conexión a la de tu computadora.  
 🔹 Hay **dos conexiones** que debes configurar:  
