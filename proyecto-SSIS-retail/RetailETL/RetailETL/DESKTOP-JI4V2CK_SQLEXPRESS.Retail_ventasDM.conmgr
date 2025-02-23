@@ -1,0 +1,10 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="DESKTOP-JI4V2CK_SQLEXPRESS.Retail_ventasDM"
+  DTS:DTSID="{71C35D3B-7863-429C-B148-80E7EA39D248}"
+  DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=DESKTOP-JI4V2CK\SQLEXPRESS;Initial Catalog=Retail_ventasDM;Integrated Security=True;Encrypt=False;Application Name=SSIS-RetailETL-{71C35D3B-7863-429C-B148-80E7EA39D248}DESKTOP-JI4V2CK\SQLEXPRESS.Retail_ventasDM;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

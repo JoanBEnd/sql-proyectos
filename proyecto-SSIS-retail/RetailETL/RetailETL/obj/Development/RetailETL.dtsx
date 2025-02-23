@@ -1,0 +1,1842 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="2/18/2025 3:43:24 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-JI4V2CK"
+  DTS:CreatorName="DESKTOP-JI4V2CK\Joan"
+  DTS:DTSID="{9108E181-4604-4855-9581-D7A96AAAB5EF}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="10250"
+  DTS:ObjectName="RetailETL"
+  DTS:PackageType="5"
+  DTS:VersionBuild="29"
+  DTS:VersionGUID="{797BB58E-B8F1-433F-BA39-A5B2BED32513}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Migrar Modelo Dimensional"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{015EF0EC-7E32-442D-A857-0DBC0285BFA7}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Migrar Modelo Dimensional"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Migrar Modelo Dimensional\Tabla_Cliente"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+              name="Tabla_Cliente"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de origen."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."Cliente"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especificar el modo de recuperar información de columnas externas"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">0</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Migrar Modelo Dimensional\Tabla_Cliente.Connections[IDbConnection]"
+                  connectionManagerID="{91B44A0F-4114-477A-B005-7A7947F0737F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-JI4V2CK_SQLEXPRESS.Retail_ventas]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Migrar Modelo Dimensional\Tabla_Cliente.Outputs[Salida de origen de ADO NET]"
+                  name="Salida de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Cliente.Outputs[Salida de origen de ADO NET].Columns[Id_Cliente]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Migrar Modelo Dimensional\Tabla_Cliente.Outputs[Salida de origen de ADO NET].ExternalColumns[Id_Cliente]"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Cliente.Outputs[Salida de origen de ADO NET].Columns[Id_Cliente]"
+                      name="Id_Cliente"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Cliente.Outputs[Salida de origen de ADO NET].Columns[Nombre]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Migrar Modelo Dimensional\Tabla_Cliente.Outputs[Salida de origen de ADO NET].ExternalColumns[Nombre]"
+                      length="200"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Cliente.Outputs[Salida de origen de ADO NET].Columns[Nombre]"
+                      name="Nombre"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Cliente.Outputs[Salida de origen de ADO NET].Columns[Apellido]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Migrar Modelo Dimensional\Tabla_Cliente.Outputs[Salida de origen de ADO NET].ExternalColumns[Apellido]"
+                      length="200"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Cliente.Outputs[Salida de origen de ADO NET].Columns[Apellido]"
+                      name="Apellido"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Cliente.Outputs[Salida de origen de ADO NET].Columns[Genero]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Migrar Modelo Dimensional\Tabla_Cliente.Outputs[Salida de origen de ADO NET].ExternalColumns[Genero]"
+                      length="30"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Cliente.Outputs[Salida de origen de ADO NET].Columns[Genero]"
+                      name="Genero"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Cliente.Outputs[Salida de origen de ADO NET].Columns[Edad]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Migrar Modelo Dimensional\Tabla_Cliente.Outputs[Salida de origen de ADO NET].ExternalColumns[Edad]"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Cliente.Outputs[Salida de origen de ADO NET].Columns[Edad]"
+                      name="Edad"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Cliente.Outputs[Salida de origen de ADO NET].ExternalColumns[Id_Cliente]"
+                      dataType="i4"
+                      name="Id_Cliente" />
+                    <externalMetadataColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Cliente.Outputs[Salida de origen de ADO NET].ExternalColumns[Nombre]"
+                      dataType="wstr"
+                      length="200"
+                      name="Nombre" />
+                    <externalMetadataColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Cliente.Outputs[Salida de origen de ADO NET].ExternalColumns[Apellido]"
+                      dataType="wstr"
+                      length="200"
+                      name="Apellido" />
+                    <externalMetadataColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Cliente.Outputs[Salida de origen de ADO NET].ExternalColumns[Genero]"
+                      dataType="wstr"
+                      length="30"
+                      name="Genero" />
+                    <externalMetadataColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Cliente.Outputs[Salida de origen de ADO NET].ExternalColumns[Edad]"
+                      dataType="ui1"
+                      name="Edad" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Migrar Modelo Dimensional\Tabla_Cliente.Outputs[Salida de error de origen de ADO NET]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Cliente.Outputs[Salida de error de origen de ADO NET].Columns[Id_Cliente]"
+                      dataType="i4"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Cliente.Outputs[Salida de error de origen de ADO NET].Columns[Id_Cliente]"
+                      name="Id_Cliente" />
+                    <outputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Cliente.Outputs[Salida de error de origen de ADO NET].Columns[Nombre]"
+                      dataType="wstr"
+                      length="200"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Cliente.Outputs[Salida de error de origen de ADO NET].Columns[Nombre]"
+                      name="Nombre" />
+                    <outputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Cliente.Outputs[Salida de error de origen de ADO NET].Columns[Apellido]"
+                      dataType="wstr"
+                      length="200"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Cliente.Outputs[Salida de error de origen de ADO NET].Columns[Apellido]"
+                      name="Apellido" />
+                    <outputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Cliente.Outputs[Salida de error de origen de ADO NET].Columns[Genero]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Cliente.Outputs[Salida de error de origen de ADO NET].Columns[Genero]"
+                      name="Genero" />
+                    <outputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Cliente.Outputs[Salida de error de origen de ADO NET].Columns[Edad]"
+                      dataType="ui1"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Cliente.Outputs[Salida de error de origen de ADO NET].Columns[Edad]"
+                      name="Edad" />
+                    <outputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Cliente.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Cliente.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Cliente.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Cliente.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Migrar Modelo Dimensional\Tabla_Dim_Cliente"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;2"
+              description="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC."
+              name="Tabla_Dim_Cliente"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de destino."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"Dim_Cliente"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifique el número de filas por lote. El valor predeterminado es 0, que utiliza el mismo tamaño que el búfer interno de SSIS. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Especifica si se debe usar la interfaz SqlBulkCopy para mejorar el rendimiento de las operaciones de inserción masiva. No todos los proveedores admiten esta interfaz."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Migrar Modelo Dimensional\Tabla_Dim_Cliente.Connections[IDbConnection]"
+                  connectionManagerID="{71C35D3B-7863-429C-B148-80E7EA39D248}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-JI4V2CK_SQLEXPRESS.Retail_ventasDM]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Migrar Modelo Dimensional\Tabla_Dim_Cliente.Inputs[Entrada de destino de ADO NET]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de ADO NET">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Dim_Cliente.Inputs[Entrada de destino de ADO NET].Columns[Id_Cliente]"
+                      cachedDataType="i4"
+                      cachedName="Id_Cliente"
+                      externalMetadataColumnId="Package\Migrar Modelo Dimensional\Tabla_Dim_Cliente.Inputs[Entrada de destino de ADO NET].ExternalColumns[Id_Cliente]"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Cliente.Outputs[Salida de origen de ADO NET].Columns[Id_Cliente]" />
+                    <inputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Dim_Cliente.Inputs[Entrada de destino de ADO NET].Columns[Nombre]"
+                      cachedDataType="wstr"
+                      cachedLength="200"
+                      cachedName="Nombre"
+                      externalMetadataColumnId="Package\Migrar Modelo Dimensional\Tabla_Dim_Cliente.Inputs[Entrada de destino de ADO NET].ExternalColumns[Nombre]"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Cliente.Outputs[Salida de origen de ADO NET].Columns[Nombre]" />
+                    <inputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Dim_Cliente.Inputs[Entrada de destino de ADO NET].Columns[Apellido]"
+                      cachedDataType="wstr"
+                      cachedLength="200"
+                      cachedName="Apellido"
+                      externalMetadataColumnId="Package\Migrar Modelo Dimensional\Tabla_Dim_Cliente.Inputs[Entrada de destino de ADO NET].ExternalColumns[Apellido]"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Cliente.Outputs[Salida de origen de ADO NET].Columns[Apellido]" />
+                    <inputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Dim_Cliente.Inputs[Entrada de destino de ADO NET].Columns[Genero]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="Genero"
+                      externalMetadataColumnId="Package\Migrar Modelo Dimensional\Tabla_Dim_Cliente.Inputs[Entrada de destino de ADO NET].ExternalColumns[Genero]"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Cliente.Outputs[Salida de origen de ADO NET].Columns[Genero]" />
+                    <inputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Dim_Cliente.Inputs[Entrada de destino de ADO NET].Columns[Edad]"
+                      cachedDataType="ui1"
+                      cachedName="Edad"
+                      externalMetadataColumnId="Package\Migrar Modelo Dimensional\Tabla_Dim_Cliente.Inputs[Entrada de destino de ADO NET].ExternalColumns[Edad]"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Cliente.Outputs[Salida de origen de ADO NET].Columns[Edad]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Dim_Cliente.Inputs[Entrada de destino de ADO NET].ExternalColumns[Id_Cliente]"
+                      dataType="i4"
+                      name="Id_Cliente" />
+                    <externalMetadataColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Dim_Cliente.Inputs[Entrada de destino de ADO NET].ExternalColumns[Nombre]"
+                      dataType="wstr"
+                      length="200"
+                      name="Nombre" />
+                    <externalMetadataColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Dim_Cliente.Inputs[Entrada de destino de ADO NET].ExternalColumns[Apellido]"
+                      dataType="wstr"
+                      length="200"
+                      name="Apellido" />
+                    <externalMetadataColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Dim_Cliente.Inputs[Entrada de destino de ADO NET].ExternalColumns[Genero]"
+                      dataType="wstr"
+                      length="30"
+                      name="Genero" />
+                    <externalMetadataColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Dim_Cliente.Inputs[Entrada de destino de ADO NET].ExternalColumns[Edad]"
+                      dataType="ui1"
+                      name="Edad" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Migrar Modelo Dimensional\Tabla_Dim_Cliente.Outputs[Salida de error de destino de ADO NET]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de ADO NET"
+                  synchronousInputId="Package\Migrar Modelo Dimensional\Tabla_Dim_Cliente.Inputs[Entrada de destino de ADO NET]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Dim_Cliente.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Dim_Cliente.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Dim_Cliente.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Dim_Cliente.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Migrar Modelo Dimensional\Tabla_Dim_Empleado"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;2"
+              description="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC."
+              name="Tabla_Dim_Empleado"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de destino."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"Dim_Empleado"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifique el número de filas por lote. El valor predeterminado es 0, que utiliza el mismo tamaño que el búfer interno de SSIS. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Especifica si se debe usar la interfaz SqlBulkCopy para mejorar el rendimiento de las operaciones de inserción masiva. No todos los proveedores admiten esta interfaz."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Migrar Modelo Dimensional\Tabla_Dim_Empleado.Connections[IDbConnection]"
+                  connectionManagerID="{71C35D3B-7863-429C-B148-80E7EA39D248}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-JI4V2CK_SQLEXPRESS.Retail_ventasDM]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Migrar Modelo Dimensional\Tabla_Dim_Empleado.Inputs[Entrada de destino de ADO NET]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de ADO NET">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Dim_Empleado.Inputs[Entrada de destino de ADO NET].Columns[id_Empleado]"
+                      cachedDataType="i4"
+                      cachedName="id_Empleado"
+                      externalMetadataColumnId="Package\Migrar Modelo Dimensional\Tabla_Dim_Empleado.Inputs[Entrada de destino de ADO NET].ExternalColumns[id_Empleado]"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Empleado.Outputs[Salida de origen de ADO NET].Columns[id_Empleado]" />
+                    <inputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Dim_Empleado.Inputs[Entrada de destino de ADO NET].Columns[Nombre]"
+                      cachedDataType="wstr"
+                      cachedLength="120"
+                      cachedName="Nombre"
+                      externalMetadataColumnId="Package\Migrar Modelo Dimensional\Tabla_Dim_Empleado.Inputs[Entrada de destino de ADO NET].ExternalColumns[Nombre]"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Empleado.Outputs[Salida de origen de ADO NET].Columns[Nombre]" />
+                    <inputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Dim_Empleado.Inputs[Entrada de destino de ADO NET].Columns[Apellido]"
+                      cachedDataType="wstr"
+                      cachedLength="120"
+                      cachedName="Apellido"
+                      externalMetadataColumnId="Package\Migrar Modelo Dimensional\Tabla_Dim_Empleado.Inputs[Entrada de destino de ADO NET].ExternalColumns[Apellido]"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Empleado.Outputs[Salida de origen de ADO NET].Columns[Apellido]" />
+                    <inputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Dim_Empleado.Inputs[Entrada de destino de ADO NET].Columns[Cargo]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Cargo"
+                      externalMetadataColumnId="Package\Migrar Modelo Dimensional\Tabla_Dim_Empleado.Inputs[Entrada de destino de ADO NET].ExternalColumns[Cargo]"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Empleado.Outputs[Salida de origen de ADO NET].Columns[Cargo]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Dim_Empleado.Inputs[Entrada de destino de ADO NET].ExternalColumns[id_Empleado]"
+                      dataType="i4"
+                      name="id_Empleado" />
+                    <externalMetadataColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Dim_Empleado.Inputs[Entrada de destino de ADO NET].ExternalColumns[Nombre]"
+                      dataType="wstr"
+                      length="120"
+                      name="Nombre" />
+                    <externalMetadataColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Dim_Empleado.Inputs[Entrada de destino de ADO NET].ExternalColumns[Apellido]"
+                      dataType="wstr"
+                      length="120"
+                      name="Apellido" />
+                    <externalMetadataColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Dim_Empleado.Inputs[Entrada de destino de ADO NET].ExternalColumns[Cargo]"
+                      dataType="wstr"
+                      length="100"
+                      name="Cargo" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Migrar Modelo Dimensional\Tabla_Dim_Empleado.Outputs[Salida de error de destino de ADO NET]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de ADO NET"
+                  synchronousInputId="Package\Migrar Modelo Dimensional\Tabla_Dim_Empleado.Inputs[Entrada de destino de ADO NET]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Dim_Empleado.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Dim_Empleado.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Dim_Empleado.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Dim_Empleado.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Migrar Modelo Dimensional\Tabla_Dim_Producto"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;2"
+              description="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC."
+              name="Tabla_Dim_Producto"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de destino."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"Dim_Producto"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifique el número de filas por lote. El valor predeterminado es 0, que utiliza el mismo tamaño que el búfer interno de SSIS. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Especifica si se debe usar la interfaz SqlBulkCopy para mejorar el rendimiento de las operaciones de inserción masiva. No todos los proveedores admiten esta interfaz."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Migrar Modelo Dimensional\Tabla_Dim_Producto.Connections[IDbConnection]"
+                  connectionManagerID="{71C35D3B-7863-429C-B148-80E7EA39D248}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-JI4V2CK_SQLEXPRESS.Retail_ventasDM]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Migrar Modelo Dimensional\Tabla_Dim_Producto.Inputs[Entrada de destino de ADO NET]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de ADO NET">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Dim_Producto.Inputs[Entrada de destino de ADO NET].Columns[Id_Producto]"
+                      cachedDataType="i4"
+                      cachedName="Id_Producto"
+                      externalMetadataColumnId="Package\Migrar Modelo Dimensional\Tabla_Dim_Producto.Inputs[Entrada de destino de ADO NET].ExternalColumns[Id_Producto]"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Producto_Categoria.Outputs[Salida de origen de ADO NET].Columns[Id_Producto]" />
+                    <inputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Dim_Producto.Inputs[Entrada de destino de ADO NET].Columns[id_Categoria]"
+                      cachedDataType="i4"
+                      cachedName="id_Categoria"
+                      externalMetadataColumnId="Package\Migrar Modelo Dimensional\Tabla_Dim_Producto.Inputs[Entrada de destino de ADO NET].ExternalColumns[id_Categoria]"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Producto_Categoria.Outputs[Salida de origen de ADO NET].Columns[id_Categoria]" />
+                    <inputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Dim_Producto.Inputs[Entrada de destino de ADO NET].Columns[Producto]"
+                      cachedDataType="wstr"
+                      cachedLength="180"
+                      cachedName="Producto"
+                      externalMetadataColumnId="Package\Migrar Modelo Dimensional\Tabla_Dim_Producto.Inputs[Entrada de destino de ADO NET].ExternalColumns[Producto]"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Producto_Categoria.Outputs[Salida de origen de ADO NET].Columns[Producto]" />
+                    <inputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Dim_Producto.Inputs[Entrada de destino de ADO NET].Columns[Categoria]"
+                      cachedDataType="wstr"
+                      cachedLength="180"
+                      cachedName="Categoria"
+                      externalMetadataColumnId="Package\Migrar Modelo Dimensional\Tabla_Dim_Producto.Inputs[Entrada de destino de ADO NET].ExternalColumns[Categoria]"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Producto_Categoria.Outputs[Salida de origen de ADO NET].Columns[Categoria]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Dim_Producto.Inputs[Entrada de destino de ADO NET].ExternalColumns[Id_Producto]"
+                      dataType="i4"
+                      name="Id_Producto" />
+                    <externalMetadataColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Dim_Producto.Inputs[Entrada de destino de ADO NET].ExternalColumns[id_Categoria]"
+                      dataType="i4"
+                      name="id_Categoria" />
+                    <externalMetadataColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Dim_Producto.Inputs[Entrada de destino de ADO NET].ExternalColumns[Producto]"
+                      dataType="wstr"
+                      length="180"
+                      name="Producto" />
+                    <externalMetadataColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Dim_Producto.Inputs[Entrada de destino de ADO NET].ExternalColumns[Categoria]"
+                      dataType="wstr"
+                      length="180"
+                      name="Categoria" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Migrar Modelo Dimensional\Tabla_Dim_Producto.Outputs[Salida de error de destino de ADO NET]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de ADO NET"
+                  synchronousInputId="Package\Migrar Modelo Dimensional\Tabla_Dim_Producto.Inputs[Entrada de destino de ADO NET]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Dim_Producto.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Dim_Producto.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Dim_Producto.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Dim_Producto.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Migrar Modelo Dimensional\Tabla_Dim_Tiempo"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;2"
+              description="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC."
+              name="Tabla_Dim_Tiempo"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de destino."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"Dim_Tiempo"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifique el número de filas por lote. El valor predeterminado es 0, que utiliza el mismo tamaño que el búfer interno de SSIS. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Especifica si se debe usar la interfaz SqlBulkCopy para mejorar el rendimiento de las operaciones de inserción masiva. No todos los proveedores admiten esta interfaz."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Migrar Modelo Dimensional\Tabla_Dim_Tiempo.Connections[IDbConnection]"
+                  connectionManagerID="{71C35D3B-7863-429C-B148-80E7EA39D248}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-JI4V2CK_SQLEXPRESS.Retail_ventasDM]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Migrar Modelo Dimensional\Tabla_Dim_Tiempo.Inputs[Entrada de destino de ADO NET]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de ADO NET">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Dim_Tiempo.Inputs[Entrada de destino de ADO NET].Columns[transaccion_id]"
+                      cachedDataType="i4"
+                      cachedName="transaccion_id"
+                      externalMetadataColumnId="Package\Migrar Modelo Dimensional\Tabla_Dim_Tiempo.Inputs[Entrada de destino de ADO NET].ExternalColumns[transaccion_id]"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Tiempo_Origen.Outputs[Salida de origen de ADO NET].Columns[transaccion_id]" />
+                    <inputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Dim_Tiempo.Inputs[Entrada de destino de ADO NET].Columns[fecha_registro]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="fecha_registro"
+                      externalMetadataColumnId="Package\Migrar Modelo Dimensional\Tabla_Dim_Tiempo.Inputs[Entrada de destino de ADO NET].ExternalColumns[fecha_registro]"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Tiempo_Origen.Outputs[Salida de origen de ADO NET].Columns[fecha_registro]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Dim_Tiempo.Inputs[Entrada de destino de ADO NET].ExternalColumns[transaccion_id]"
+                      dataType="i4"
+                      name="transaccion_id" />
+                    <externalMetadataColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Dim_Tiempo.Inputs[Entrada de destino de ADO NET].ExternalColumns[fecha_registro]"
+                      dataType="dbTimeStamp"
+                      name="fecha_registro" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Migrar Modelo Dimensional\Tabla_Dim_Tiempo.Outputs[Salida de error de destino de ADO NET]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de ADO NET"
+                  synchronousInputId="Package\Migrar Modelo Dimensional\Tabla_Dim_Tiempo.Inputs[Entrada de destino de ADO NET]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Dim_Tiempo.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Dim_Tiempo.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Dim_Tiempo.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Dim_Tiempo.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Migrar Modelo Dimensional\Tabla_Empleado"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+              name="Tabla_Empleado"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de origen."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."Empleado"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especificar el modo de recuperar información de columnas externas"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">0</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Migrar Modelo Dimensional\Tabla_Empleado.Connections[IDbConnection]"
+                  connectionManagerID="{91B44A0F-4114-477A-B005-7A7947F0737F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-JI4V2CK_SQLEXPRESS.Retail_ventas]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Migrar Modelo Dimensional\Tabla_Empleado.Outputs[Salida de origen de ADO NET]"
+                  name="Salida de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Empleado.Outputs[Salida de origen de ADO NET].Columns[id_Empleado]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Migrar Modelo Dimensional\Tabla_Empleado.Outputs[Salida de origen de ADO NET].ExternalColumns[id_Empleado]"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Empleado.Outputs[Salida de origen de ADO NET].Columns[id_Empleado]"
+                      name="id_Empleado"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Empleado.Outputs[Salida de origen de ADO NET].Columns[Nombre]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Migrar Modelo Dimensional\Tabla_Empleado.Outputs[Salida de origen de ADO NET].ExternalColumns[Nombre]"
+                      length="120"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Empleado.Outputs[Salida de origen de ADO NET].Columns[Nombre]"
+                      name="Nombre"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Empleado.Outputs[Salida de origen de ADO NET].Columns[Apellido]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Migrar Modelo Dimensional\Tabla_Empleado.Outputs[Salida de origen de ADO NET].ExternalColumns[Apellido]"
+                      length="120"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Empleado.Outputs[Salida de origen de ADO NET].Columns[Apellido]"
+                      name="Apellido"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Empleado.Outputs[Salida de origen de ADO NET].Columns[Cargo]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Migrar Modelo Dimensional\Tabla_Empleado.Outputs[Salida de origen de ADO NET].ExternalColumns[Cargo]"
+                      length="100"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Empleado.Outputs[Salida de origen de ADO NET].Columns[Cargo]"
+                      name="Cargo"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Empleado.Outputs[Salida de origen de ADO NET].ExternalColumns[id_Empleado]"
+                      dataType="i4"
+                      name="id_Empleado" />
+                    <externalMetadataColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Empleado.Outputs[Salida de origen de ADO NET].ExternalColumns[Nombre]"
+                      dataType="wstr"
+                      length="120"
+                      name="Nombre" />
+                    <externalMetadataColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Empleado.Outputs[Salida de origen de ADO NET].ExternalColumns[Apellido]"
+                      dataType="wstr"
+                      length="120"
+                      name="Apellido" />
+                    <externalMetadataColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Empleado.Outputs[Salida de origen de ADO NET].ExternalColumns[Cargo]"
+                      dataType="wstr"
+                      length="100"
+                      name="Cargo" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Migrar Modelo Dimensional\Tabla_Empleado.Outputs[Salida de error de origen de ADO NET]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Empleado.Outputs[Salida de error de origen de ADO NET].Columns[id_Empleado]"
+                      dataType="i4"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Empleado.Outputs[Salida de error de origen de ADO NET].Columns[id_Empleado]"
+                      name="id_Empleado" />
+                    <outputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Empleado.Outputs[Salida de error de origen de ADO NET].Columns[Nombre]"
+                      dataType="wstr"
+                      length="120"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Empleado.Outputs[Salida de error de origen de ADO NET].Columns[Nombre]"
+                      name="Nombre" />
+                    <outputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Empleado.Outputs[Salida de error de origen de ADO NET].Columns[Apellido]"
+                      dataType="wstr"
+                      length="120"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Empleado.Outputs[Salida de error de origen de ADO NET].Columns[Apellido]"
+                      name="Apellido" />
+                    <outputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Empleado.Outputs[Salida de error de origen de ADO NET].Columns[Cargo]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Empleado.Outputs[Salida de error de origen de ADO NET].Columns[Cargo]"
+                      name="Cargo" />
+                    <outputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Empleado.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Empleado.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Empleado.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Empleado.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Migrar Modelo Dimensional\Tabla_H_ventas"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;2"
+              description="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC."
+              name="Tabla_H_ventas"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de destino."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">H_Ventas</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifique el número de filas por lote. El valor predeterminado es 0, que utiliza el mismo tamaño que el búfer interno de SSIS. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Especifica si se debe usar la interfaz SqlBulkCopy para mejorar el rendimiento de las operaciones de inserción masiva. No todos los proveedores admiten esta interfaz."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Migrar Modelo Dimensional\Tabla_H_ventas.Connections[IDbConnection]"
+                  connectionManagerID="{71C35D3B-7863-429C-B148-80E7EA39D248}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-JI4V2CK_SQLEXPRESS.Retail_ventasDM]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Migrar Modelo Dimensional\Tabla_H_ventas.Inputs[Entrada de destino de ADO NET]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de ADO NET">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_H_ventas.Inputs[Entrada de destino de ADO NET].Columns[Transaccion_ID]"
+                      cachedDataType="i4"
+                      cachedName="Transaccion_ID"
+                      externalMetadataColumnId="Package\Migrar Modelo Dimensional\Tabla_H_ventas.Inputs[Entrada de destino de ADO NET].ExternalColumns[Transaccion_ID]"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Venta.Outputs[Salida de origen de ADO NET].Columns[Transaccion_ID]" />
+                    <inputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_H_ventas.Inputs[Entrada de destino de ADO NET].Columns[Id_Cliente]"
+                      cachedDataType="i4"
+                      cachedName="Id_Cliente"
+                      externalMetadataColumnId="Package\Migrar Modelo Dimensional\Tabla_H_ventas.Inputs[Entrada de destino de ADO NET].ExternalColumns[Id_Cliente]"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Venta.Outputs[Salida de origen de ADO NET].Columns[Id_Cliente]" />
+                    <inputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_H_ventas.Inputs[Entrada de destino de ADO NET].Columns[Id_Empleado]"
+                      cachedDataType="i4"
+                      cachedName="Id_Empleado"
+                      externalMetadataColumnId="Package\Migrar Modelo Dimensional\Tabla_H_ventas.Inputs[Entrada de destino de ADO NET].ExternalColumns[Id_Empleado]"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Venta.Outputs[Salida de origen de ADO NET].Columns[Id_Empleado]" />
+                    <inputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_H_ventas.Inputs[Entrada de destino de ADO NET].Columns[Id_Producto]"
+                      cachedDataType="i4"
+                      cachedName="Id_Producto"
+                      externalMetadataColumnId="Package\Migrar Modelo Dimensional\Tabla_H_ventas.Inputs[Entrada de destino de ADO NET].ExternalColumns[Id_Producto]"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Venta.Outputs[Salida de origen de ADO NET].Columns[Id_Producto]" />
+                    <inputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_H_ventas.Inputs[Entrada de destino de ADO NET].Columns[Cantidad]"
+                      cachedDataType="i4"
+                      cachedName="Cantidad"
+                      externalMetadataColumnId="Package\Migrar Modelo Dimensional\Tabla_H_ventas.Inputs[Entrada de destino de ADO NET].ExternalColumns[Cantidad]"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Venta.Outputs[Salida de origen de ADO NET].Columns[Cantidad]" />
+                    <inputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_H_ventas.Inputs[Entrada de destino de ADO NET].Columns[Precio_unitario]"
+                      cachedDataType="numeric"
+                      cachedName="Precio_unitario"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Migrar Modelo Dimensional\Tabla_H_ventas.Inputs[Entrada de destino de ADO NET].ExternalColumns[Precio_unitario]"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Venta.Outputs[Salida de origen de ADO NET].Columns[Precio_unitario]" />
+                    <inputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_H_ventas.Inputs[Entrada de destino de ADO NET].Columns[Total]"
+                      cachedDataType="numeric"
+                      cachedName="Total"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Migrar Modelo Dimensional\Tabla_H_ventas.Inputs[Entrada de destino de ADO NET].ExternalColumns[Total]"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Venta.Outputs[Salida de origen de ADO NET].Columns[Total]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_H_ventas.Inputs[Entrada de destino de ADO NET].ExternalColumns[Transaccion_ID]"
+                      dataType="i4"
+                      name="Transaccion_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_H_ventas.Inputs[Entrada de destino de ADO NET].ExternalColumns[Id_Cliente]"
+                      dataType="i4"
+                      name="Id_Cliente" />
+                    <externalMetadataColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_H_ventas.Inputs[Entrada de destino de ADO NET].ExternalColumns[Id_Empleado]"
+                      dataType="i4"
+                      name="Id_Empleado" />
+                    <externalMetadataColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_H_ventas.Inputs[Entrada de destino de ADO NET].ExternalColumns[Id_Producto]"
+                      dataType="i4"
+                      name="Id_Producto" />
+                    <externalMetadataColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_H_ventas.Inputs[Entrada de destino de ADO NET].ExternalColumns[Cantidad]"
+                      dataType="i4"
+                      name="Cantidad" />
+                    <externalMetadataColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_H_ventas.Inputs[Entrada de destino de ADO NET].ExternalColumns[Precio_unitario]"
+                      dataType="numeric"
+                      name="Precio_unitario"
+                      precision="10"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_H_ventas.Inputs[Entrada de destino de ADO NET].ExternalColumns[Total]"
+                      dataType="numeric"
+                      name="Total"
+                      precision="10"
+                      scale="2" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Migrar Modelo Dimensional\Tabla_H_ventas.Outputs[Salida de error de destino de ADO NET]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de ADO NET"
+                  synchronousInputId="Package\Migrar Modelo Dimensional\Tabla_H_ventas.Inputs[Entrada de destino de ADO NET]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_H_ventas.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_H_ventas.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_H_ventas.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_H_ventas.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Migrar Modelo Dimensional\Tabla_Producto_Categoria"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+              name="Tabla_Producto_Categoria"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT        p.Id_Producto, c.id_Categoria, p.Producto, c.Categoria
+FROM            Producto AS p INNER JOIN
+                         Categoria AS c ON p.Id_Categoria = c.id_Categoria</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de origen."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especificar el modo de recuperar información de columnas externas"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Migrar Modelo Dimensional\Tabla_Producto_Categoria.Connections[IDbConnection]"
+                  connectionManagerID="{91B44A0F-4114-477A-B005-7A7947F0737F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-JI4V2CK_SQLEXPRESS.Retail_ventas]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Migrar Modelo Dimensional\Tabla_Producto_Categoria.Outputs[Salida de origen de ADO NET]"
+                  name="Salida de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Producto_Categoria.Outputs[Salida de origen de ADO NET].Columns[Id_Producto]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Migrar Modelo Dimensional\Tabla_Producto_Categoria.Outputs[Salida de origen de ADO NET].ExternalColumns[Id_Producto]"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Producto_Categoria.Outputs[Salida de origen de ADO NET].Columns[Id_Producto]"
+                      name="Id_Producto"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Producto_Categoria.Outputs[Salida de origen de ADO NET].Columns[id_Categoria]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Migrar Modelo Dimensional\Tabla_Producto_Categoria.Outputs[Salida de origen de ADO NET].ExternalColumns[id_Categoria]"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Producto_Categoria.Outputs[Salida de origen de ADO NET].Columns[id_Categoria]"
+                      name="id_Categoria"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Producto_Categoria.Outputs[Salida de origen de ADO NET].Columns[Producto]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Migrar Modelo Dimensional\Tabla_Producto_Categoria.Outputs[Salida de origen de ADO NET].ExternalColumns[Producto]"
+                      length="180"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Producto_Categoria.Outputs[Salida de origen de ADO NET].Columns[Producto]"
+                      name="Producto"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Producto_Categoria.Outputs[Salida de origen de ADO NET].Columns[Categoria]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Migrar Modelo Dimensional\Tabla_Producto_Categoria.Outputs[Salida de origen de ADO NET].ExternalColumns[Categoria]"
+                      length="180"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Producto_Categoria.Outputs[Salida de origen de ADO NET].Columns[Categoria]"
+                      name="Categoria"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Producto_Categoria.Outputs[Salida de origen de ADO NET].ExternalColumns[Id_Producto]"
+                      dataType="i4"
+                      name="Id_Producto" />
+                    <externalMetadataColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Producto_Categoria.Outputs[Salida de origen de ADO NET].ExternalColumns[id_Categoria]"
+                      dataType="i4"
+                      name="id_Categoria" />
+                    <externalMetadataColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Producto_Categoria.Outputs[Salida de origen de ADO NET].ExternalColumns[Producto]"
+                      dataType="wstr"
+                      length="180"
+                      name="Producto" />
+                    <externalMetadataColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Producto_Categoria.Outputs[Salida de origen de ADO NET].ExternalColumns[Categoria]"
+                      dataType="wstr"
+                      length="180"
+                      name="Categoria" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Migrar Modelo Dimensional\Tabla_Producto_Categoria.Outputs[Salida de error de origen de ADO NET]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Producto_Categoria.Outputs[Salida de error de origen de ADO NET].Columns[Id_Producto]"
+                      dataType="i4"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Producto_Categoria.Outputs[Salida de error de origen de ADO NET].Columns[Id_Producto]"
+                      name="Id_Producto" />
+                    <outputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Producto_Categoria.Outputs[Salida de error de origen de ADO NET].Columns[id_Categoria]"
+                      dataType="i4"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Producto_Categoria.Outputs[Salida de error de origen de ADO NET].Columns[id_Categoria]"
+                      name="id_Categoria" />
+                    <outputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Producto_Categoria.Outputs[Salida de error de origen de ADO NET].Columns[Producto]"
+                      dataType="wstr"
+                      length="180"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Producto_Categoria.Outputs[Salida de error de origen de ADO NET].Columns[Producto]"
+                      name="Producto" />
+                    <outputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Producto_Categoria.Outputs[Salida de error de origen de ADO NET].Columns[Categoria]"
+                      dataType="wstr"
+                      length="180"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Producto_Categoria.Outputs[Salida de error de origen de ADO NET].Columns[Categoria]"
+                      name="Categoria" />
+                    <outputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Producto_Categoria.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Producto_Categoria.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Producto_Categoria.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Producto_Categoria.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Migrar Modelo Dimensional\Tabla_Tiempo_Origen"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+              name="Tabla_Tiempo_Origen"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select  transaccion_id, fecha_registro  from venta</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de origen."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especificar el modo de recuperar información de columnas externas"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Migrar Modelo Dimensional\Tabla_Tiempo_Origen.Connections[IDbConnection]"
+                  connectionManagerID="{91B44A0F-4114-477A-B005-7A7947F0737F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-JI4V2CK_SQLEXPRESS.Retail_ventas]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Migrar Modelo Dimensional\Tabla_Tiempo_Origen.Outputs[Salida de origen de ADO NET]"
+                  name="Salida de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Tiempo_Origen.Outputs[Salida de origen de ADO NET].Columns[transaccion_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Migrar Modelo Dimensional\Tabla_Tiempo_Origen.Outputs[Salida de origen de ADO NET].ExternalColumns[transaccion_id]"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Tiempo_Origen.Outputs[Salida de origen de ADO NET].Columns[transaccion_id]"
+                      name="transaccion_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Tiempo_Origen.Outputs[Salida de origen de ADO NET].Columns[fecha_registro]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Migrar Modelo Dimensional\Tabla_Tiempo_Origen.Outputs[Salida de origen de ADO NET].ExternalColumns[fecha_registro]"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Tiempo_Origen.Outputs[Salida de origen de ADO NET].Columns[fecha_registro]"
+                      name="fecha_registro"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Tiempo_Origen.Outputs[Salida de origen de ADO NET].ExternalColumns[transaccion_id]"
+                      dataType="i4"
+                      name="transaccion_id" />
+                    <externalMetadataColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Tiempo_Origen.Outputs[Salida de origen de ADO NET].ExternalColumns[fecha_registro]"
+                      dataType="dbTimeStamp"
+                      name="fecha_registro" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Migrar Modelo Dimensional\Tabla_Tiempo_Origen.Outputs[Salida de error de origen de ADO NET]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Tiempo_Origen.Outputs[Salida de error de origen de ADO NET].Columns[transaccion_id]"
+                      dataType="i4"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Tiempo_Origen.Outputs[Salida de error de origen de ADO NET].Columns[transaccion_id]"
+                      name="transaccion_id" />
+                    <outputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Tiempo_Origen.Outputs[Salida de error de origen de ADO NET].Columns[fecha_registro]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Tiempo_Origen.Outputs[Salida de error de origen de ADO NET].Columns[fecha_registro]"
+                      name="fecha_registro" />
+                    <outputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Tiempo_Origen.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Tiempo_Origen.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Tiempo_Origen.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Tiempo_Origen.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Migrar Modelo Dimensional\Tabla_Venta"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+              name="Tabla_Venta"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT v.Transaccion_ID, v.Id_Cliente, v.Id_Empleado, vd.Id_Producto, Cantidad, Precio_unitario, Total
+ FROM venta v
+ INNER JOIN venta_detalle vd ON v.Transaccion_ID = vd.Transaccion_ID;</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de origen."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especificar el modo de recuperar información de columnas externas"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Migrar Modelo Dimensional\Tabla_Venta.Connections[IDbConnection]"
+                  connectionManagerID="{91B44A0F-4114-477A-B005-7A7947F0737F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-JI4V2CK_SQLEXPRESS.Retail_ventas]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Migrar Modelo Dimensional\Tabla_Venta.Outputs[Salida de origen de ADO NET]"
+                  name="Salida de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Venta.Outputs[Salida de origen de ADO NET].Columns[Transaccion_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Migrar Modelo Dimensional\Tabla_Venta.Outputs[Salida de origen de ADO NET].ExternalColumns[Transaccion_ID]"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Venta.Outputs[Salida de origen de ADO NET].Columns[Transaccion_ID]"
+                      name="Transaccion_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Venta.Outputs[Salida de origen de ADO NET].Columns[Id_Cliente]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Migrar Modelo Dimensional\Tabla_Venta.Outputs[Salida de origen de ADO NET].ExternalColumns[Id_Cliente]"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Venta.Outputs[Salida de origen de ADO NET].Columns[Id_Cliente]"
+                      name="Id_Cliente"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Venta.Outputs[Salida de origen de ADO NET].Columns[Id_Empleado]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Migrar Modelo Dimensional\Tabla_Venta.Outputs[Salida de origen de ADO NET].ExternalColumns[Id_Empleado]"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Venta.Outputs[Salida de origen de ADO NET].Columns[Id_Empleado]"
+                      name="Id_Empleado"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Venta.Outputs[Salida de origen de ADO NET].Columns[Id_Producto]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Migrar Modelo Dimensional\Tabla_Venta.Outputs[Salida de origen de ADO NET].ExternalColumns[Id_Producto]"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Venta.Outputs[Salida de origen de ADO NET].Columns[Id_Producto]"
+                      name="Id_Producto"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Venta.Outputs[Salida de origen de ADO NET].Columns[Cantidad]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Migrar Modelo Dimensional\Tabla_Venta.Outputs[Salida de origen de ADO NET].ExternalColumns[Cantidad]"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Venta.Outputs[Salida de origen de ADO NET].Columns[Cantidad]"
+                      name="Cantidad"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Venta.Outputs[Salida de origen de ADO NET].Columns[Precio_unitario]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Migrar Modelo Dimensional\Tabla_Venta.Outputs[Salida de origen de ADO NET].ExternalColumns[Precio_unitario]"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Venta.Outputs[Salida de origen de ADO NET].Columns[Precio_unitario]"
+                      name="Precio_unitario"
+                      precision="10"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Venta.Outputs[Salida de origen de ADO NET].Columns[Total]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Migrar Modelo Dimensional\Tabla_Venta.Outputs[Salida de origen de ADO NET].ExternalColumns[Total]"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Venta.Outputs[Salida de origen de ADO NET].Columns[Total]"
+                      name="Total"
+                      precision="10"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Venta.Outputs[Salida de origen de ADO NET].ExternalColumns[Transaccion_ID]"
+                      dataType="i4"
+                      name="Transaccion_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Venta.Outputs[Salida de origen de ADO NET].ExternalColumns[Id_Cliente]"
+                      dataType="i4"
+                      name="Id_Cliente" />
+                    <externalMetadataColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Venta.Outputs[Salida de origen de ADO NET].ExternalColumns[Id_Empleado]"
+                      dataType="i4"
+                      name="Id_Empleado" />
+                    <externalMetadataColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Venta.Outputs[Salida de origen de ADO NET].ExternalColumns[Id_Producto]"
+                      dataType="i4"
+                      name="Id_Producto" />
+                    <externalMetadataColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Venta.Outputs[Salida de origen de ADO NET].ExternalColumns[Cantidad]"
+                      dataType="i4"
+                      name="Cantidad" />
+                    <externalMetadataColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Venta.Outputs[Salida de origen de ADO NET].ExternalColumns[Precio_unitario]"
+                      dataType="numeric"
+                      name="Precio_unitario"
+                      precision="10"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Venta.Outputs[Salida de origen de ADO NET].ExternalColumns[Total]"
+                      dataType="numeric"
+                      name="Total"
+                      precision="10"
+                      scale="2" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Migrar Modelo Dimensional\Tabla_Venta.Outputs[Salida de error de origen de ADO NET]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Venta.Outputs[Salida de error de origen de ADO NET].Columns[Transaccion_ID]"
+                      dataType="i4"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Venta.Outputs[Salida de error de origen de ADO NET].Columns[Transaccion_ID]"
+                      name="Transaccion_ID" />
+                    <outputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Venta.Outputs[Salida de error de origen de ADO NET].Columns[Id_Cliente]"
+                      dataType="i4"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Venta.Outputs[Salida de error de origen de ADO NET].Columns[Id_Cliente]"
+                      name="Id_Cliente" />
+                    <outputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Venta.Outputs[Salida de error de origen de ADO NET].Columns[Id_Empleado]"
+                      dataType="i4"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Venta.Outputs[Salida de error de origen de ADO NET].Columns[Id_Empleado]"
+                      name="Id_Empleado" />
+                    <outputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Venta.Outputs[Salida de error de origen de ADO NET].Columns[Id_Producto]"
+                      dataType="i4"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Venta.Outputs[Salida de error de origen de ADO NET].Columns[Id_Producto]"
+                      name="Id_Producto" />
+                    <outputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Venta.Outputs[Salida de error de origen de ADO NET].Columns[Cantidad]"
+                      dataType="i4"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Venta.Outputs[Salida de error de origen de ADO NET].Columns[Cantidad]"
+                      name="Cantidad" />
+                    <outputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Venta.Outputs[Salida de error de origen de ADO NET].Columns[Precio_unitario]"
+                      dataType="numeric"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Venta.Outputs[Salida de error de origen de ADO NET].Columns[Precio_unitario]"
+                      name="Precio_unitario"
+                      precision="10"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Venta.Outputs[Salida de error de origen de ADO NET].Columns[Total]"
+                      dataType="numeric"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Venta.Outputs[Salida de error de origen de ADO NET].Columns[Total]"
+                      name="Total"
+                      precision="10"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Venta.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Venta.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Migrar Modelo Dimensional\Tabla_Venta.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Migrar Modelo Dimensional\Tabla_Venta.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Migrar Modelo Dimensional.Paths[Salida de origen de ADO NET]"
+              endId="Package\Migrar Modelo Dimensional\Tabla_Dim_Producto.Inputs[Entrada de destino de ADO NET]"
+              name="Salida de origen de ADO NET"
+              startId="Package\Migrar Modelo Dimensional\Tabla_Producto_Categoria.Outputs[Salida de origen de ADO NET]" />
+            <path
+              refId="Package\Migrar Modelo Dimensional.Paths[Salida de origen de ADO NET1]"
+              endId="Package\Migrar Modelo Dimensional\Tabla_Dim_Tiempo.Inputs[Entrada de destino de ADO NET]"
+              name="Salida de origen de ADO NET"
+              startId="Package\Migrar Modelo Dimensional\Tabla_Tiempo_Origen.Outputs[Salida de origen de ADO NET]" />
+            <path
+              refId="Package\Migrar Modelo Dimensional.Paths[Salida de origen de ADO NET2]"
+              endId="Package\Migrar Modelo Dimensional\Tabla_Dim_Cliente.Inputs[Entrada de destino de ADO NET]"
+              name="Salida de origen de ADO NET"
+              startId="Package\Migrar Modelo Dimensional\Tabla_Cliente.Outputs[Salida de origen de ADO NET]" />
+            <path
+              refId="Package\Migrar Modelo Dimensional.Paths[Salida de origen de ADO NET3]"
+              endId="Package\Migrar Modelo Dimensional\Tabla_Dim_Empleado.Inputs[Entrada de destino de ADO NET]"
+              name="Salida de origen de ADO NET"
+              startId="Package\Migrar Modelo Dimensional\Tabla_Empleado.Outputs[Salida de origen de ADO NET]" />
+            <path
+              refId="Package\Migrar Modelo Dimensional.Paths[Salida de origen de ADO NET4]"
+              endId="Package\Migrar Modelo Dimensional\Tabla_H_ventas.Inputs[Entrada de destino de ADO NET]"
+              name="Salida de origen de ADO NET"
+              startId="Package\Migrar Modelo Dimensional\Tabla_Venta.Outputs[Salida de origen de ADO NET]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="206,42"
+          Id="Package\Migrar Modelo Dimensional"
+          TopLeft="112,66" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Migrar Modelo Dimensional">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="181,42"
+          Id="Package\Migrar Modelo Dimensional\Tabla_Dim_Empleado"
+          TopLeft="767,263" />
+        <NodeLayout
+          Size="167,42"
+          Id="Package\Migrar Modelo Dimensional\Tabla_Dim_Cliente"
+          TopLeft="553,260" />
+        <NodeLayout
+          Size="154,42"
+          Id="Package\Migrar Modelo Dimensional\Tabla_H_ventas"
+          TopLeft="128,499" />
+        <NodeLayout
+          Size="138,42"
+          Id="Package\Migrar Modelo Dimensional\Tabla_Venta"
+          TopLeft="47,394" />
+        <NodeLayout
+          Size="183,42"
+          Id="Package\Migrar Modelo Dimensional\Tabla_Tiempo_Origen"
+          TopLeft="296,69" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\Migrar Modelo Dimensional\Tabla_Empleado"
+          TopLeft="783,62" />
+        <NodeLayout
+          Size="170,42"
+          Id="Package\Migrar Modelo Dimensional\Tabla_Dim_Tiempo"
+          TopLeft="322,252" />
+        <NodeLayout
+          Size="143,42"
+          Id="Package\Migrar Modelo Dimensional\Tabla_Cliente"
+          TopLeft="552,67" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Migrar Modelo Dimensional\Tabla_Dim_Producto"
+          TopLeft="90,260" />
+        <NodeLayout
+          Size="203,42"
+          Id="Package\Migrar Modelo Dimensional\Tabla_Producto_Categoria"
+          TopLeft="27,74" />
+        <EdgeLayout
+          Id="Package\Migrar Modelo Dimensional.Paths[Salida de origen de ADO NET4]"
+          TopLeft="116,436">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="89,63"
+              Start="0,0"
+              End="89,55.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.5"
+                    Point2="0,31.5"
+                    Point3="4,31.5" />
+                  <mssgle:LineSegment
+                    End="85,31.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="85,31.5"
+                    Point2="89,31.5"
+                    Point3="89,35.5" />
+                  <mssgle:LineSegment
+                    End="89,55.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Migrar Modelo Dimensional.Paths[Salida de origen de ADO NET3]"
+          TopLeft="859.5,104">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,159"
+              Start="0,0"
+              End="0,151.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,151.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Migrar Modelo Dimensional.Paths[Salida de origen de ADO NET2]"
+          TopLeft="623.5,109">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="13,151"
+              Start="0,0"
+              End="13,143.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,71.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,71.5"
+                    Point2="0,75.5"
+                    Point3="4,75.5" />
+                  <mssgle:LineSegment
+                    End="9,75.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="9,75.5"
+                    Point2="13,75.5"
+                    Point3="13,79.5" />
+                  <mssgle:LineSegment
+                    End="13,143.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Migrar Modelo Dimensional.Paths[Salida de origen de ADO NET1]"
+          TopLeft="387.5,111">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="19.5,141"
+              Start="0,0"
+              End="19.5,133.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,66.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,66.5"
+                    Point2="0,70.5"
+                    Point3="4,70.5" />
+                  <mssgle:LineSegment
+                    End="15.5,70.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="15.5,70.5"
+                    Point2="19.5,70.5"
+                    Point3="19.5,74.5" />
+                  <mssgle:LineSegment
+                    End="19.5,133.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Migrar Modelo Dimensional.Paths[Salida de origen de ADO NET]"
+          TopLeft="128.5,116">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="50,144"
+              Start="0,0"
+              End="50,136.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,68" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,68"
+                    Point2="0,72"
+                    Point3="4,72" />
+                  <mssgle:LineSegment
+                    End="46,72" />
+                  <mssgle:CubicBezierSegment
+                    Point1="46,72"
+                    Point2="50,72"
+                    Point3="50,76" />
+                  <mssgle:LineSegment
+                    End="50,136.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Migrar Modelo Dimensional\Tabla_Dim_Empleado">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Migrar Modelo Dimensional\Tabla_Dim_Cliente">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Migrar Modelo Dimensional\Tabla_H_ventas">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Migrar Modelo Dimensional\Tabla_Venta">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Migrar Modelo Dimensional\Tabla_Tiempo_Origen">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Migrar Modelo Dimensional\Tabla_Empleado">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Migrar Modelo Dimensional\Tabla_Dim_Tiempo">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Migrar Modelo Dimensional\Tabla_Cliente">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Migrar Modelo Dimensional\Tabla_Dim_Producto">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Migrar Modelo Dimensional\Tabla_Producto_Categoria">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
