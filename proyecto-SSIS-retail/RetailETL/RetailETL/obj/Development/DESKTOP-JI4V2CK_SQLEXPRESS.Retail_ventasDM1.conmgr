@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="DESKTOP-JI4V2CK_SQLEXPRESS.Retail_ventasDM1"
+  DTS:DTSID="{F8F4B1DA-BB61-427E-9CD8-3023FB7FAFB1}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=DESKTOP-JI4V2CK\SQLEXPRESS;Initial Catalog=Retail_ventasDM;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-RetailETL-{F8F4B1DA-BB61-427E-9CD8-3023FB7FAFB1}DESKTOP-JI4V2CK\SQLEXPRESS.Retail_ventasDM1;Auto Translate=False;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
